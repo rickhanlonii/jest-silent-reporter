@@ -26,7 +26,7 @@ class SilentReporter {
       const didUpdate = this._globalConfig.updateSnapshot === 'all';
       const snapshotStatuses = helpers.getSnapshotStatus(
         testResult.snapshot,
-        didUpdate,
+        didUpdate
       );
       snapshotStatuses.forEach(this.stdio.log);
     }

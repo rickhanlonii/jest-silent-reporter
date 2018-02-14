@@ -14,14 +14,14 @@ const getSnapshotStatus = (snapshot, afterUpdate) => {
   if (snapshot.added) {
     statuses.push(
       SNAPSHOT_ADDED(ARROW + pluralize('snapshot', snapshot.added)) +
-        ' written.',
+        ' written.'
     );
   }
 
   if (snapshot.updated) {
     statuses.push(
       SNAPSHOT_UPDATED(ARROW + pluralize('snapshot', snapshot.updated)) +
-        ` updated.`,
+        ` updated.`
     );
   }
 
@@ -29,20 +29,20 @@ const getSnapshotStatus = (snapshot, afterUpdate) => {
     statuses.push(
       FAIL_COLOR(ARROW + pluralize('obsolete snapshot', snapshot.unchecked)) +
         (afterUpdate ? ' removed' : ' found') +
-        '.',
+        '.'
     );
   }
 
   if (snapshot.fileDeleted) {
     statuses.push(
-      SNAPSHOT_REMOVED(ARROW + 'Obsolete snapshot file') + ` removed.`,
+      SNAPSHOT_REMOVED(ARROW + 'Obsolete snapshot file') + ` removed.`
     );
   }
 
   if (snapshot.unmatched) {
     statuses.push(
       FAIL_COLOR(ARROW + pluralize('snapshot test', snapshot.unmatched)) +
-        ' failed.',
+        ' failed.'
     );
   }
   return statuses;
