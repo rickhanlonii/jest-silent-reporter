@@ -1,0 +1,1 @@
+## 🤫 Jest Silent Reporter

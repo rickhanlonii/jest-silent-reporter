@@ -1,0 +1,19 @@
+{
+  "name": "jest-silent-reporter",
+  "version": "0.0.1",
+  "description": "A silent reporter for Jest",
+  "main": "index.js",
+  "repository": "https://github.com/rickhanlonii/jest-silent-reporter",
+  "author": "rickhanlonii <rickhanlonii@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier --write **/**.js **/**.md"
+  },
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "jest-util": "^22.3.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
+  }
+}
