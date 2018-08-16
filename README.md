@@ -37,6 +37,13 @@ Jest Config:
 }
 ```
 
+## Options
+
+### `JEST_SILENT_REPORTER_DOTS=true`
+For large test suites, `jest-silent-reporter` can cause CI to fail due to having no output for some configured amount of time. Using the `JEST_SILENT_REPORTER_DOTS` envar will output dots for each test file, similar to a dot reporter. 
+
+Note: this is an envar because Jest does not allow for CLI options passed to reporters.
+
 ## Screens
 
 #### All tests passed
