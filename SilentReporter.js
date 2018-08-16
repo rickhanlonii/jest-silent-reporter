@@ -19,9 +19,13 @@ class SilentReporter {
   }
 
   onTestResult(test, testResult) {
+    if (process.env.JEST_SILENT_REPORTER_DOTS) {
+      this.stdio.logInline('.');
+    }
+
     if (!testResult.skipped) {
       if (testResult.failureMessage) {
-        this.stdio.log(testResult.failureMessage);
+        this.stdio.log('\n' + testResult.failureMessage);
       }
       const didUpdate = this._globalConfig.updateSnapshot === 'all';
       const snapshotStatuses = helpers.getSnapshotStatus(

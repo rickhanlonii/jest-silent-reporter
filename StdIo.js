@@ -11,6 +11,10 @@ class StdIo {
     process.stderr.write(message + '\n');
   }
 
+  logInline(message) {
+    process.stderr.write(message);
+  }
+
   close() {
     this._forceFlushBufferedOutput();
     process.stdout.write = this._out;
