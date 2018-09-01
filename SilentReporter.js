@@ -3,9 +3,10 @@ const helpers = require('./helpers');
 const StdIo = require('./StdIo');
 
 class SilentReporter {
-  constructor(globalConfig) {
+  constructor(globalConfig, options = {}) {
     this._globalConfig = globalConfig;
     this.stdio = new StdIo();
+    this.useDots = !!process.env.JEST_SILENT_REPORTER_DOTS || !!options.useDots;
   }
 
   onRunStart() {
@@ -19,7 +20,7 @@ class SilentReporter {
   }
 
   onTestResult(test, testResult) {
-    if (process.env.JEST_SILENT_REPORTER_DOTS) {
+    if (this.useDots) {
       this.stdio.logInline('.');
     }
 
