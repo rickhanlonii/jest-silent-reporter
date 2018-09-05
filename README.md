@@ -39,16 +39,19 @@ Jest Config:
 
 ## Options
 
-### useDots
+### useDots: boolean
 
 For large test suites, `jest-silent-reporter` can cause CI to fail due to having
-no output for some configured amount of time. Using the `useDots: boolean`
-option will output dots for each test file, similar to a dot reporter.
+no output for some configured amount of time. Using the `useDots` option will
+output dots for each test file, similar to a dot reporter.
 
-### `JEST_SILENT_REPORTER_DOTS=true`
+```json
+{
+  "reporters": [["jest-silent-reporter", { "useDots": true }]]
+}
+```
 
-Note: this is also available as an envar because Jest does not allow for CLI
-options passed to reporters.
+Note: this config is also available as an envar `JEST_SILENT_REPORTER_DOTS=true`
 
 ## Screens
 
