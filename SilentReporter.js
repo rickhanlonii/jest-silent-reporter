@@ -16,6 +16,9 @@ class SilentReporter {
   }
 
   onRunComplete() {
+    if (this.useDots) {
+      this.stdio.log('\n');
+    }
     this.stdio.close();
   }
 
