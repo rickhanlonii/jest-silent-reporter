@@ -53,6 +53,19 @@ output dots for each test file, similar to a dot reporter.
 
 Note: this config is also available as an envar `JEST_SILENT_REPORTER_DOTS=true`
 
+### showPaths: boolean
+
+Sometimes it might come in handy to display the test suites' paths (i.e. when
+running tests in a terminal inside IDE for quicker file navigation).
+
+```json
+{
+  "reporters": [["jest-silent-reporter", { "showPaths": true }]]
+}
+```
+
+Note: this config is also available as an envar `JEST_SILENT_REPORTER_SHOW_PATHS=true`
+
 ## Screens
 
 #### All tests passed
