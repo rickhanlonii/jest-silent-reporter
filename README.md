@@ -2,23 +2,23 @@
   <img src="http://dp.hanlon.io/0u2T0M3Z3i0g/shhh.png" height="150" width="300"/>
   <p>Jest Silent Reporter</p>
 </h1>
-<p align="center">Jest custom reporter that only prints failed tests.</p>
+<p align="center">Custom reporter for [Jest](https://jestjs.io/) that only prints failed tests.</p>
 <p align="center">
   <img src="http://dp.hanlon.io/0O2p312H2C3B/Image%202018-06-07%20at%208.26.20%20PM.png" height="200"/>
 </p>
 
 ## Installation
 
-Using npm:
+Using [npm](https://www.npmjs.com/):
 
-```bash
-$ npm i -D jest-silent-reporter
+```sh
+$ npm i --save-dev jest-silent-reporter
 ```
 
-Using yarn:
+Using [yarn](https://yarnpkg.com/):
 
-```bash
-$ yarn add -D jest-silent-reporter
+```sh
+$ yarn add --dev jest-silent-reporter
 ```
 
 ## Usage
@@ -26,10 +26,10 @@ $ yarn add -D jest-silent-reporter
 Jest CLI:
 
 ```bash
-jest --reporters jest-silent-reporter
+jest --reporters=jest-silent-reporter
 ```
 
-Jest Config:
+Jest config:
 
 ```json
 {
@@ -51,17 +51,17 @@ output dots for each test file, similar to a dot reporter.
 }
 ```
 
-Note: this config is also available as an envar `JEST_SILENT_REPORTER_DOTS=true`
+Note: this config is also available as an environment variable `JEST_SILENT_REPORTER_DOTS=true`
 
-## Screens
+## Screenshots
 
 #### All tests passed
 
-![](http://dp.hanlon.io/0O2p312H2C3B/Image%202018-06-07%20at%208.26.20%20PM.png)
+![Screenshot: all tests passed](http://dp.hanlon.io/0O2p312H2C3B/Image%202018-06-07%20at%208.26.20%20PM.png)
 
 #### Tests failed
 
-![](http://dp.hanlon.io/110J3c2s0Y0v/Image%202018-06-07%20at%208.29.22%20PM.png)
+![Screenshot: some tests failed](http://dp.hanlon.io/110J3c2s0Y0v/Image%202018-06-07%20at%208.29.22%20PM.png)
 
 ## Licence
 
