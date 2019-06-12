@@ -2,7 +2,7 @@
   <img src="http://dp.hanlon.io/0u2T0M3Z3i0g/shhh.png" height="150" width="300"/>
   <p>Jest Silent Reporter</p>
 </h1>
-<p align="center">Custom reporter for [Jest](https://jestjs.io/) that only prints failed tests.</p>
+<p align="center">Custom reporter for <a href="https://jestjs.io">Jest</a> that only prints failed tests.</p>
 <p align="center">
   <img src="http://dp.hanlon.io/0O2p312H2C3B/Image%202018-06-07%20at%208.26.20%20PM.png" height="200"/>
 </p>
