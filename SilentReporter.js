@@ -7,6 +7,7 @@ class SilentReporter {
     this._globalConfig = globalConfig;
     this.stdio = new StdIo();
     this.useDots = !!process.env.JEST_SILENT_REPORTER_DOTS || !!options.useDots;
+    this.showPaths = !!process.env.JEST_SILENT_REPORTER_SHOW_PATHS || !!options.showPaths;
     this.showWarnings =
       !!process.env.JEST_SILENT_REPORTER_SHOW_WARNINGS ||
       !!options.showWarnings;
@@ -32,6 +33,7 @@ class SilentReporter {
 
     if (!testResult.skipped) {
       if (testResult.failureMessage) {
+        if (this.showPaths) this.stdio.log('\n' + test.path);
         this.stdio.log('\n' + testResult.failureMessage);
       }
       if (testResult.console && this.showWarnings) {

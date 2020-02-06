@@ -53,6 +53,8 @@ output dots for each test file, similar to a dot reporter.
 }
 ```
 
+Note: this config is also available as an environment variable `JEST_SILENT_REPORTER_DOTS=true`.
+
 ### showWarnings: boolean
 
 Warnings are supressed by default, use `showWarnings` to log them.
@@ -63,7 +65,21 @@ Warnings are supressed by default, use `showWarnings` to log them.
 }
 ```
 
-Note: these options are also available as environment variables `JEST_SILENT_REPORTER_DOTS=true` and `JEST_SILENT_REPORTER_SHOW_WARNINGS=true`
+Note: this config is also available as an environment variable `JEST_SILENT_REPORTER_SHOW_WARNINGS=true`.
+
+
+### showPaths: boolean
+
+Sometimes it might come in handy to display the test suites' paths (i.e. when
+running tests in a terminal inside IDE for quicker file navigation).
+
+```json
+{
+  "reporters": [["jest-silent-reporter", { "showPaths": true }]]
+}
+```
+
+Note: this config is also available as  an environment variable `JEST_SILENT_REPORTER_SHOW_PATHS=true`.
 
 ## Screenshots
 
