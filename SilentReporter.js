@@ -8,6 +8,9 @@ class SilentReporter {
     this.stdio = new StdIo();
     this.useDots = !!process.env.JEST_SILENT_REPORTER_DOTS || !!options.useDots;
     this.showPaths = !!process.env.JEST_SILENT_REPORTER_SHOW_PATHS || !!options.showPaths;
+    this.showWarnings =
+      !!process.env.JEST_SILENT_REPORTER_SHOW_WARNINGS ||
+      !!options.showWarnings;
   }
 
   onRunStart() {
@@ -32,6 +35,12 @@ class SilentReporter {
       if (testResult.failureMessage) {
         if (this.showPaths) this.stdio.log('\n' + test.path);
         this.stdio.log('\n' + testResult.failureMessage);
+      }
+      if (testResult.console && this.showWarnings) {
+        testResult.console
+          .filter(entry => entry.type === 'warn' && entry.message)
+          .map(entry => entry.message)
+          .forEach(this.stdio.log);
       }
       const didUpdate = this._globalConfig.updateSnapshot === 'all';
       const snapshotStatuses = helpers.getSnapshotStatus(
