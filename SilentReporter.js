@@ -34,9 +34,17 @@ class SilentReporter {
 
     if (!testResult.skipped) {
       const didUpdate = this._globalConfig.updateSnapshot === 'all';
-      const hasUncheckedSnapshots =
-        !didUpdate && testResult.snapshot && testResult.snapshot.unchecked;
-      const hasFailures = testResult.failureMessage || hasUncheckedSnapshots;
+      let hasSnapshotFailures = false;
+      if (testResult.snapshot) {
+        if (!didUpdate && testResult.snapshot.unchecked) {
+          hasSnapshotFailures = true;
+        }
+        if (testResult.snapshot.unmatched) {
+          hasSnapshotFailures = true;
+        }
+      }
+
+      const hasFailures = testResult.failureMessage || hasSnapshotFailures;
 
       if (this.showPaths && hasFailures) {
         this.stdio.log('\n' + test.path);
