@@ -53,7 +53,7 @@ class SilentReporter {
         this.stdio.log('\n' + testResult.failureMessage);
       if (testResult.console && this.showWarnings) {
         testResult.console
-          .filter(entry => entry.type === 'warn' && entry.message)
+          .filter(entry => ['error', 'warn'].includes(entry.type) && entry.message)
           .map(entry => entry.message)
           .forEach(this.stdio.log);
       }
