@@ -1,4 +1,5 @@
 const jestUtils = require('jest-util');
+const jestReporters = require('@jest/reporters');
 const helpers = require('./helpers');
 const StdIo = require('./StdIo');
 
@@ -20,10 +21,14 @@ class SilentReporter {
     }
   }
 
-  onRunComplete() {
+  onRunComplete(
+    contexts,
+    aggregatedResults,
+  ) {
     if (this.useDots) {
       this.stdio.log('\n');
     }
+    this.stdio.log(jestReporters.utils.getSummary(aggregatedResults)+'\n');
     this.stdio.close();
   }
 
