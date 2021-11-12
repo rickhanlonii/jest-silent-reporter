@@ -12,6 +12,12 @@ class SilentReporter {
     this.showWarnings =
       !!process.env.JEST_SILENT_REPORTER_SHOW_WARNINGS ||
       !!options.showWarnings;
+    this.showErrors =
+      // showErrors defaults true if unset
+      !!(
+        (process.env.JEST_SILENT_REPORTER_SHOW_ERRORS || options.showErrors)
+        ?? true
+      )
   }
 
   onRunStart() {
@@ -46,10 +52,10 @@ class SilentReporter {
 
       const hasFailures = testResult.failureMessage || hasSnapshotFailures;
 
-      if (this.showPaths && hasFailures) {
+      if (this.showPaths && hasFailures && this.showErrors) {
         this.stdio.log('\n' + test.path);
       }
-      if (testResult.failureMessage)
+      if (testResult.failureMessage && this.showErrors)
         this.stdio.log('\n' + testResult.failureMessage);
       if (testResult.console && this.showWarnings) {
         testResult.console

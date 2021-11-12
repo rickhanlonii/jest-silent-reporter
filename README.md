@@ -67,6 +67,17 @@ Warnings are supressed by default, use `showWarnings` to log them.
 
 Note: this config is also available as an environment variable `JEST_SILENT_REPORTER_SHOW_WARNINGS=true`.
 
+### showErrors: boolean (default: true)
+
+Errors are logged by default, use `showErrors` to suppress them.
+
+```json
+{
+  "reporters": [["jest-silent-reporter", { "showErrors": false }]]
+}
+```
+
+Note: this config is also available as an environment variable `JEST_SILENT_REPORTER_SHOW_ERRORS=false`.
 
 ### showPaths: boolean
 
