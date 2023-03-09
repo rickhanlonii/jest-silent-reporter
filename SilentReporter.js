@@ -57,7 +57,11 @@ class SilentReporter {
 
         // everything in stdout during the test
         this.stdio.log('\nLogs outputted during this test: \n');
-        testResult.console.map(entry => entry.message).forEach(this.stdio.log);
+        if (testResult.console) {
+          testResult.console
+            .map(entry => entry.message)
+            .forEach(this.stdio.log);
+        }
       }
 
       if (testResult.console && this.showWarnings) {
