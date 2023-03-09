@@ -45,12 +45,21 @@ class SilentReporter {
       }
 
       const hasFailures = testResult.failureMessage || hasSnapshotFailures;
+      if (hasFailures) {
 
-      if (this.showPaths && hasFailures) {
-        this.stdio.log('\n' + test.path);
+        if (this.showPaths) {
+          this.stdio.log('\n' + test.path);
+        }
+
+        if (testResult.failureMessage) {
+          this.stdio.log('\n' + testResult.failureMessage);
+        }
+
+        // everything in stdout during the test
+        this.stdio.log('\nLogs outputted during this test: \n');
+        testResult.console.map(entry => entry.message).forEach(this.stdio.log);
       }
-      if (testResult.failureMessage)
-        this.stdio.log('\n' + testResult.failureMessage);
+
       if (testResult.console && this.showWarnings) {
         testResult.console
           .filter(entry => ['error', 'warn'].includes(entry.type) && entry.message)
