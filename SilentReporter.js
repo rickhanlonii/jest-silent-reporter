@@ -1,3 +1,4 @@
+const path = require('path');
 const jestUtils = require('jest-util');
 const helpers = require('./helpers');
 const StdIo = require('./StdIo');
@@ -47,7 +48,7 @@ class SilentReporter {
       const hasFailures = testResult.failureMessage || hasSnapshotFailures;
 
       if (this.showPaths && hasFailures) {
-        this.stdio.log('\n' + test.path);
+        this.stdio.log('\nFAIL ' + path.relative(test.context.config.cwd || test.context.config.rootDir, test.path));
       }
       if (testResult.failureMessage)
         this.stdio.log('\n' + testResult.failureMessage);
