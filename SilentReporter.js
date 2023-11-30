@@ -46,9 +46,10 @@ class SilentReporter {
       }
 
       const hasFailures = testResult.failureMessage || hasSnapshotFailures;
+      const testPath = path.relative(test.context.config.cwd || test.context.config.rootDir, test.path);
 
       if (this.showPaths && hasFailures) {
-        this.stdio.log('\nFAIL ' + path.relative(test.context.config.cwd || test.context.config.rootDir, test.path));
+        this.stdio.log('\nFAIL ' + testPath);
       }
       if (testResult.failureMessage)
         this.stdio.log('\n' + testResult.failureMessage);
