@@ -12,6 +12,7 @@ class SilentReporter {
     this.showWarnings =
       !!process.env.JEST_SILENT_REPORTER_SHOW_WARNINGS ||
       !!options.showWarnings;
+    this.showSeed = !!globalConfig.showSeed
   }
 
   onRunStart() {
@@ -23,6 +24,9 @@ class SilentReporter {
   onRunComplete() {
     if (this.useDots) {
       this.stdio.log('\n');
+    }
+    if (this.showSeed) {
+      this.stdio.log(`Seed: ${this._globalConfig.seed}`)
     }
     this.stdio.close();
   }
